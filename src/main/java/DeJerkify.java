@@ -73,6 +73,11 @@ public class DeJerkify {
         while (matcher.find()){
             hold.add(matcher.group(0));
         }
+        input = matcher.replaceAll("");//.replaceAll("##", "");
+        String[] splitString = input.split("##+\\w");
+        for(int i = 1; i < splitString.length; i++){
+            hold.add("name:Invalid;price:0.00;type:Food;expiration:1/01/0001");
+        }
         return hold;
     }
 

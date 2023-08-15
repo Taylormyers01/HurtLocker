@@ -1,6 +1,8 @@
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
+import java.util.Objects;
 
-public class Item {
+public class Item implements Comparator<Item>{
 
     private String name;
     private Double price;
@@ -24,7 +26,7 @@ public class Item {
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", type='" + type + '\'' +
-                ", date=" + date.toString() +
+                ", date=" + date.toPattern() +
                 '}';
     }
 
@@ -47,4 +49,25 @@ public class Item {
     public void setDate(SimpleDateFormat date) {
         this.date = date;
     }
+
+    @Override
+    public int compare(Item o1, Item o2) {
+        return o1.name.compareTo(o2.name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Objects.equals(name, item.name) && Objects.equals(price, item.price) && Objects.equals(type, item.type) && Objects.equals(date, item.date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, type, date);
+    }
+
+
 }

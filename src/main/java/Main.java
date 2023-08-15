@@ -25,8 +25,18 @@ public class Main {
 //        ArrayList<String> data = parseData(output);
 //        ItemList il = createItems(data);
 //        il.forEach(System.out::println);
-        
+        ArrayList<String> items = DeJerkify.getItems2V2(output);
+//        items.forEach(System.out::println);
+        ItemList il = createItems(items);
+        il.forEach(System.out::println);
+    }
 
+    private static ItemList createItems(ArrayList<String> items){
+        ItemList il = new ItemList();
+        for(String s: items){
+            il.createAndAddItem(s);
+        }
+        return il;
     }
 
 //    public static ArrayList<String> parseData(String input){
