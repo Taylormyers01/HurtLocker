@@ -30,7 +30,7 @@ public class DeJerkify {
 
 
     public static String getPriceV2(String input){
-        Pattern p = Pattern.compile("(\\d\\.\\d*)");
+        Pattern p = Pattern.compile("(\\d+\\.\\d{2})");
         Matcher matcher = p.matcher(input);
         if(matcher.find()){
             return matcher.group(0);

@@ -28,7 +28,9 @@ public class Main {
         ArrayList<String> items = DeJerkify.getItems2V2(output);
 //        items.forEach(System.out::println);
         ItemList il = createItems(items);
-        il.forEach(System.out::println);
+//        il.forEach(System.out::println);
+        il.countItems();
+        il.printCount();
     }
 
     private static ItemList createItems(ArrayList<String> items){
